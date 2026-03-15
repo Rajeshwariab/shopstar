@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+<h2>Delivery Address</h2>
+
+<form method="POST">
+{% csrf_token %}
+
+<input type="text" name="name" placeholder="Full Name" class="form-control mb-2">
+
+<input type="text" name="phone" placeholder="Phone Number" class="form-control mb-2">
+
+<textarea name="address" placeholder="Address" class="form-control mb-2"></textarea>
+
+<input type="text" name="city" placeholder="City" class="form-control mb-2">
+
+<input type="text" name="state" placeholder="State" class="form-control mb-2">
+
+<input type="text" name="pincode" placeholder="Pincode" class="form-control mb-2">
+
+<button class="btn btn-success">
+Place Order
+</button>
+
+</form>
+
+</div>
+
+{% endblock %}

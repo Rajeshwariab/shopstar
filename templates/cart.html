@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Your Cart 🛒</h1>
+
+{% for item in cart_items %}
+
+<div style="border:1px solid black; padding:15px; margin:10px; width:300px;">
+
+<h2>{{ item.product.name }}</h2>
+
+<p>Price: ₹{{ item.product.price }}</p>
+
+<p>
+<a href="/decrease/{{ item.id }}/">➖</a>
+Quantity: {{ item.quantity }}
+<a href="/increase/{{ item.id }}/">➕</a>
+</p>
+
+<a href="/remove/{{ item.id }}/">❌ Remove</a>
+
+</div>
+
+{% endfor %}
+
+<h2>Total Price: ₹{{ total }}</h2>
+<a href="/checkout/">
+<button>Checkout 💳</button>
+</a>
+{% endblock %}

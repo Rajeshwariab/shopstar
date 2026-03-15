@@ -1,0 +1,18 @@
+<h1>Your Wishlist</h1>
+
+{% if wishlist_items %}
+    <ul>
+    {% for item in wishlist_items %}
+        <li>
+            {{ item.product.name }} - ${{ item.product.price }}
+            <!-- Add to wishlist -->
+<a href="{% url 'add_to_wishlist' product.id %}">Add to Wishlist</a>
+
+<!-- Remove from wishlist -->
+<a href="{% url 'remove_from_wishlist' item.id %}">Remove</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Your wishlist is empty.</p>
+{% endif %}
